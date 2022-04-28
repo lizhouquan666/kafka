@@ -10,14 +10,29 @@ public class ProducerController {
 
     @Autowired
    private KafkaTemplate<String,String> kafkaTemplate;
-
-    @RequestMapping("/send")
-    public String data(String msg)
+    @RequestMapping("/producer")
+    public String machine()
     {
-        kafkaTemplate.send("first",msg);
+      //  String topic,String id,String msg
+      // kafkaTemplate.send(topic,id,msg);
+        kafkaTemplate.send("192.168.110.52","nima4554");
+
+        return "success";
+    }
+
+ /*   @RequestMapping("/producer40")
+    public String machine40(String msg)
+    {
+        kafkaTemplate.send("192.168.110.40",msg);
         return "success";
     }
 
 
-
+    @RequestMapping("/producer145")
+    public String machine145(String msg)
+    {
+        kafkaTemplate.send("192.168.110.145",msg);
+        return "success";
+    }
+*/
 }
